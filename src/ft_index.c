@@ -6,7 +6,7 @@
 /*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:43:35 by gjacinta          #+#    #+#             */
-/*   Updated: 2022/02/18 17:30:10 by gjacinta         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:52:26 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ static	t_list	*ft_getmin(t_list **stack)
 void	ft_index(t_list	**stack)
 {
 	t_list	*top;
-	int		i;
+	int		index;
 
-	i = 0;
+	index = 0;
 	top = ft_getmin(stack);
 	while (top)
 	{
-		top->index = i++;
+		top->index = index++;
 		top = ft_getmin(stack);
 	}
 }

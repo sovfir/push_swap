@@ -6,48 +6,48 @@
 /*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 17:51:23 by gjacinta          #+#    #+#             */
-/*   Updated: 2022/02/18 19:08:10 by gjacinta         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:23:46 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	ft_minimalnbr(t_list	**stack,int	num)
+static int	ft_min_num(t_list **stack, int num)
 {
 	t_list	*top;
-	int		minimal_value;
+	int		min_val;
 
 	top = *stack;
-	minimal_value = top->index;
+	min_val = top->index;
 	while (top->next)
 	{
 		top = top->next;
-		if ((top->index < minimal_value) && top->index != num)
-			minimal_value = top->index;
+		if ((top->index < min_val) && top->index != num)
+			min_val = top->index;
 	}
-	return (minimal_value);
+	return (min_val);
 }
 
-static void	ft_sort_three(t_list	**stack_a)
+static void	sort_3nbr(t_list **stack_a)
 {
-	t_list	*top;
-	int		min;
-	int		next_minimal;
+	t_list		*top;
+	int			min;
+	int			min_next;
 
 	top = *stack_a;
-	min = ft_minimalnbr(stack_a, -1);
-	next_minimal = ft_minimalnbr(stack_a, min);
+	min = ft_min_num(stack_a, -1);
+	min_next = ft_min_num(stack_a, min);
 	if (ft_sortedstack(stack_a))
 		return ;
-	if (top->index == min && top->next->index != next_minimal)
+	if (top->index == min && top->next->index != min_next)
 	{
 		ra(stack_a);
 		sa(stack_a);
 		rra(stack_a);
 	}
-	else if (top->index == next_minimal)
+	else if (top->index == min_next)
 	{
-		if (top->next->index == next_minimal)
+		if (top->next->index == min)
 			sa(stack_a);
 		else
 			rra(stack_a);
@@ -56,13 +56,13 @@ static void	ft_sort_three(t_list	**stack_a)
 		ft_sort_three2(stack_a, top, min);
 }
 
-static void	ft_sort_four(t_list	**stack_a,t_list	**stack_b)
+static void	sort_4nbr(t_list **stack_a, t_list **stack_b)
 {
 	int	num;
 
 	if (ft_sortedstack(stack_a))
 		return ;
-	num = ft_distance_to_nbr(stack_a, ft_minimalnbr(stack_a, -1));
+	num = ft_distance_to_nbr(stack_a, ft_min_num(stack_a, -1));
 	if (num == 1)
 		ra(stack_a);
 	else if (num == 2)
@@ -75,17 +75,15 @@ static void	ft_sort_four(t_list	**stack_a,t_list	**stack_b)
 	if (ft_sortedstack(stack_a))
 		return ;
 	pb(stack_a, stack_b);
-	ft_sort_three(stack_a);
+	sort_3nbr(stack_a);
 	pa(stack_a, stack_b);
 }
 
-static void	ft_sort_five(t_list	**stack_a,t_list	**stack_b)
+void	sort_5nbr(t_list **stack_a, t_list **stack_b)
 {
 	int	num;
 
-	if (ft_sortedstack(stack_a))
-		return ;
-	num = ft_distance_to_nbr(stack_a, ft_minimalnbr(stack_a, -1));
+	num = ft_distance_to_nbr(stack_a, ft_min_num(stack_a, -1));
 	if (num == 1)
 		ra(stack_a);
 	else if (num == 2)
@@ -103,25 +101,24 @@ static void	ft_sort_five(t_list	**stack_a,t_list	**stack_b)
 	if (ft_sortedstack(stack_a))
 		return ;
 	pb(stack_a, stack_b);
-	ft_sort_four(stack_a, stack_b);
+	sort_4nbr(stack_a, stack_b);
 	pa(stack_a, stack_b);
-}	
-	
+}
 
-void	ft_simplesort(t_list	**stack_a,t_list	**stack_b)
+void	ft_simplesort(t_list **stack_a, t_list **stack_b)
 {
-	int	length;
+	int	size;
 
 	if (ft_sortedstack(stack_a) || ft_lstsize(*stack_a) == 0
 		|| ft_lstsize(*stack_a) == 1)
 		return ;
-	length = ft_lstsize(*stack_a);
-	if (length == 2)
+	size = ft_lstsize(*stack_a);
+	if (size == 2)
 		sa(stack_a);
-	else if (length == 3)
-		ft_sort_three(stack_a);
-	else if (length == 4)
-		ft_sort_four(stack_a, stack_b);
-	else if (length == 5)
-		ft_sort_five(stack_a, stack_b);
+	else if (size == 3)
+		sort_3nbr(stack_a);
+	else if (size == 4)
+		sort_4nbr(stack_a, stack_b);
+	else if (size == 5)
+		sort_5nbr(stack_a, stack_b);
 }

@@ -6,13 +6,13 @@
 /*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 18:07:41 by gjacinta          #+#    #+#             */
-/*   Updated: 2022/02/12 18:33:29 by gjacinta         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:43:19 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_error(char *str, int	fd)
+void	ft_error(char *str, int fd)
 {
 	ft_putendl_fd(str, fd);
 	exit(0);
@@ -47,7 +47,7 @@ void	ft_stackfree(t_list	**stack)
 	free(stack);
 }
 
-void	ft_sort_three2(t_list	**stack_a,t_list	*top,int min)
+void	ft_sort_three2(t_list **stack_a, t_list *top, int min)
 {
 	if (top->next->index == min)
 		ra(stack_a);
@@ -58,7 +58,7 @@ void	ft_sort_three2(t_list	**stack_a,t_list	*top,int min)
 	}
 }
 
-int	ft_distance_to_nbr(t_list	**stack, int	i)
+int	ft_distance_to_nbr(t_list **stack, int i)
 {
 	t_list	*top;
 	int		distance;
@@ -68,7 +68,7 @@ int	ft_distance_to_nbr(t_list	**stack, int	i)
 	while (top)
 	{
 		if (top->index == i)
-			break;
+			break ;
 		distance++;
 		top = top->next;
 	}

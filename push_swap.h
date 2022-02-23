@@ -6,7 +6,7 @@
 /*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:47:15 by gjacinta          #+#    #+#             */
-/*   Updated: 2022/02/18 18:36:44 by gjacinta         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:22:48 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ typedef struct s_arguments
 	int			i;
 }	t_arguments;
 
-void	ft_error(char *str, int	fd);
+void	ft_error(char *str, int fd);
 void	ft_validcheck(t_arguments	*data);
 int		ft_sortedstack(t_list	**stack);
 void	ft_stackfree(t_list	**stack);
-int		ft_distance_to_nbr(t_list	**stack, int	i);
+int		ft_distance_to_nbr(t_list **stack, int i);
 void	ft_index(t_list	**stack);
 
-void	ft_simplesort(t_list	**stack_a,t_list	**stack_b);
+void	ft_simplesort(t_list	**stack_a, t_list	**stack_b);
 void	ft_radix(t_list	**stack_a, t_list	**stack_b);
-void	ft_sort_three2(t_list	**stack_a,t_list	*top,int min);
+void	ft_sort_three2(t_list	**stack_a, t_list	*top, int min);
 
 int		push_function(t_list	**stack_to, t_list	**stack_from);
 int		pb(t_list	**stack_a, t_list	**stack_b);
@@ -57,6 +57,5 @@ int		swap_function(t_list	**stack);
 int		sa(t_list **stack_a);
 int		sb(t_list **stack_b);
 int		ss(t_list **stack_a, t_list **stack_b);
-
 
 #endif

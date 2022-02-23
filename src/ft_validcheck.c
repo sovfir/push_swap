@@ -6,13 +6,13 @@
 /*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 18:00:37 by gjacinta          #+#    #+#             */
-/*   Updated: 2022/02/17 18:40:53 by gjacinta         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:24:52 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	ft_repeatcheck(int	number,t_arguments *data, int i)
+static int	ft_repeatcheck(int number, t_arguments *data, int i)
 {
 	i++;
 	while (data->argv[i])

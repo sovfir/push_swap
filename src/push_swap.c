@@ -6,7 +6,7 @@
 /*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:52:12 by gjacinta          #+#    #+#             */
-/*   Updated: 2022/02/21 20:17:19 by gjacinta         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:30:13 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_stackmaker(t_list **stack, t_arguments *data)
 	ft_index(stack);
 }
 
-int	main(int	argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list		**stack_a;
 	t_list		**stack_b;
@@ -43,11 +43,8 @@ int	main(int	argc, char **argv)
 	data.argv = argv;
 	data.argc = argc;
 	data.i = 0;
-	if(argc < 2)
-	{
+	if (argc < 2)
 		ft_error("Error\n", 1);
-		return(-1);
-	}
 	ft_validcheck(&data);
 	stack_a = (t_list **)malloc(sizeof(t_list));
 	stack_b = (t_list **)malloc(sizeof(t_list));
@@ -63,5 +60,5 @@ int	main(int	argc, char **argv)
 	ft_sorting(stack_a, stack_b);
 	ft_stackfree(stack_b);
 	ft_stackfree(stack_a);
-	return(0);
+	return (0);
 }

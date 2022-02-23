@@ -6,7 +6,7 @@
 /*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:21:42 by gjacinta          #+#    #+#             */
-/*   Updated: 2022/02/21 20:15:24 by gjacinta         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:37:28 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,3 @@ int	ss(t_list **stack_a, t_list **stack_b)
 	ft_putendl_fd("ss", 1);
 	return (0);
 }
-

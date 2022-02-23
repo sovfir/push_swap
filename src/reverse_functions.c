@@ -6,7 +6,7 @@
 /*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:03:38 by gjacinta          #+#    #+#             */
-/*   Updated: 2022/02/16 18:15:16 by gjacinta         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:43:42 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	reverse_function(t_list	**stack)
 {
 	t_list	*head;
 	t_list	*remain;
-	
+
 	if (ft_lstsize(*stack) < 2)
 		return (-1);
 	head = *stack;
@@ -26,7 +26,7 @@ int	reverse_function(t_list	**stack)
 		if (head->next->next == NULL)
 		{
 			head->next = NULL;
-			break;
+			break ;
 		}
 		head = head->next;
 	}
